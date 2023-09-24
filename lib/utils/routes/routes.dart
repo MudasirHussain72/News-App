@@ -1,5 +1,6 @@
 import 'package:news_app/view/dashboard/explore/explore_screen.dart';
 import 'package:news_app/view/dashboard/home/home_screen.dart';
+import 'package:news_app/view/dashboard/news_detail/news_detail_Screen.dart';
 import 'package:news_app/view/dashboard/saved/saved_screen.dart';
 import 'package:news_app/view/view_barrel_file.dart';
 import '../routes/routes_barrel_file.dart';
@@ -20,6 +21,8 @@ class Routes {
         return _platformPageRoute(child: const ExploreScreen());
       case RouteName.savedScreen:
         return _platformPageRoute(child: const SavedScreen());
+      case RouteName.newsDetailScreen:
+        return _platformPageRoute(child: const NewsDetailScreen());
       default:
         return MaterialPageRoute(builder: (_) {
           return Scaffold(

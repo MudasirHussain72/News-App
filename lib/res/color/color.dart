@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 class AppColors {
   // main colors
   static const Color primaryColor = Color(0xff121212);
+  static const Color primaryLightColor = Color(0xffFEFEFE);
   static const Color secondaryColor = Color(0xfff8f8f8);
+  static const Color secondarydarkColor = Color(0xffB2B2B2);
+
   //scaffold colours
   static const Color scaffoldlightColor = Color(0xffF8F8F8);
   // inputDecorationTheme
@@ -12,11 +15,8 @@ class AppColors {
   // appbar colours
   static const Color appBarPrimaryColor = Color(0xffF8F8F8);
   // text colors
-  static const Color primaryTextColor = Color(0xffffffff);
-  static const Color secondaryTextdarkColor = Color(0xff0F0425);
-  static const Color secondaryTextColor = Color(0xffA28DB7);
-  static const Color feedCardTitleColor = Color(0xff0E0A47);
-  static const Color feedCardTitleDarkColor = Color(0xff797F85);
+  static const Color primaryTextColor = Color(0xff121212);
+  static const Color secondaryTextdarkColor = Color(0xffD6D6D6);
   // icon colours
   static const Color primaryIconColor = Color(0xffA28DB7);
   static const Color iconDarkColor = Color(0xff202934);
@@ -27,7 +27,7 @@ class AppColors {
 //textfeld fill colur
   static const Color inputTextBorderColor = Color.fromRGBO(19, 103, 33, 1);
   static const Color hintColor = Color.fromRGBO(114, 114, 114, 1);
-  static const Color textfieldFilledColor = Color(0xff523082);
+  static const Color textfieldFilledColor = Color(0xffFEFEFE);
 
   static const Color textFieldDefaultFocus = Color(0xfff5f5f6);
   static const Color textFieldDefaultBorderColor = Color(0xff62448B);

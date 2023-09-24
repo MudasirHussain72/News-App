@@ -28,15 +28,13 @@ class _DashboardScreenState extends State<DashboardScreen>
           'assets/icons/house_fill.svg',
           height: 26,
           width: 26,
-          // color: Colors.white,
-          color: Theme.of(context).colorScheme.onBackground,
+          color: AppColors.primaryColor,
         ),
         inactiveIcon: SvgPicture.asset(
           'assets/icons/house.svg',
           height: 26,
           width: 26,
-          // color: Colors.white,
-          color: Theme.of(context).colorScheme.onBackground,
+          color: AppColors.primaryColor,
         ),
         activeColorPrimary: AppColors.alertColor,
         inactiveColorPrimary: AppColors.whiteColor,
@@ -46,7 +44,7 @@ class _DashboardScreenState extends State<DashboardScreen>
         icon: Icon(
           Icons.explore,
           size: 26,
-          color: Theme.of(context).colorScheme.onBackground,
+          color: AppColors.primaryColor,
         ),
         activeColorPrimary: AppColors.alertColor,
         inactiveColorPrimary: AppColors.whiteColor,
@@ -54,14 +52,14 @@ class _DashboardScreenState extends State<DashboardScreen>
         inactiveIcon: Icon(
           Icons.explore_outlined,
           size: 26,
-          color: Theme.of(context).colorScheme.onBackground,
+          color: AppColors.primaryColor,
         ),
       ),
       PersistentBottomNavBarItem(
         icon: Icon(
           Icons.bookmark,
           size: 26,
-          color: Theme.of(context).colorScheme.onBackground,
+          color: AppColors.primaryColor,
         ),
         activeColorPrimary: AppColors.alertColor,
         inactiveColorPrimary: AppColors.whiteColor,
@@ -69,7 +67,7 @@ class _DashboardScreenState extends State<DashboardScreen>
         inactiveIcon: Icon(
           Icons.bookmark_border,
           size: 26,
-          color: Theme.of(context).colorScheme.onBackground,
+          color: AppColors.primaryColor,
         ),
       ),
     ];
@@ -102,12 +100,12 @@ class _DashboardScreenState extends State<DashboardScreen>
       items: _navBarItem(),
       controller: controler,
       // backgroundColor: Colors.grey.shade900,
-      backgroundColor: Theme.of(context).colorScheme.onPrimary,
+      backgroundColor: AppColors.primaryLightColor,
       decoration: NavBarDecoration(
         borderRadius: BorderRadius.circular(0.0),
         colorBehindNavBar: AppColors.iconBlueColor,
       ),
-      navBarStyle: NavBarStyle.style3,
+      navBarStyle: NavBarStyle.style12,
     );
   }
 }

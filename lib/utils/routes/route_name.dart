@@ -6,4 +6,5 @@ class RouteName {
   static const String homeScreen = 'home_screen';
   static const String exploreScreen = 'explore_screen';
   static const String savedScreen = 'saved_screen';
+  static const String newsDetailScreen = 'news_detail_screen';
 }
