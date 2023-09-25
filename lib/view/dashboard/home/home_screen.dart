@@ -48,9 +48,11 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SizedBox(height: height * .02),
             SizedBox(
-              height: 500,
+              height: height * .5,
               child: ListView.builder(
                   physics: BouncingScrollPhysics(),
+                  shrinkWrap: true, // -> Add this here
+                  // physics: NeverScrollableScrollPhysics(), // -> And this one
                   itemCount: 10,
                   itemBuilder: (context, index) {
                     return ShowNewsCardWidget();
