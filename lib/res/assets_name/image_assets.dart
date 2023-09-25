@@ -5,4 +5,6 @@ class ImageAssets {
   //svg icons
   static var homeIcon = 'assets/icons/house.svg';
   static var homeFillIcon = 'assets/icons/house_fill.svg';
+  //images
+  static var userIamge = 'assets/images/user_image.jpg';
 }

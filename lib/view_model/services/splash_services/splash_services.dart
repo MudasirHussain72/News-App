@@ -10,7 +10,7 @@ class SplashServices {
   */
 
   void splashService(BuildContext context) {
-    Timer.periodic(const Duration(seconds: 3), (timer) {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
       timer.cancel();
       Navigator.of(context).push(PageRouteBuilder(
           pageBuilder: (BuildContext context, Animation<double> animation,

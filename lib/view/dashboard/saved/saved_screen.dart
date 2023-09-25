@@ -1,4 +1,3 @@
-import 'package:news_app/res/components/shows_news_card_widget.dart';
 import 'package:news_app/view/view_barrel_file.dart';
 
 class SavedScreen extends StatefulWidget {
@@ -30,7 +29,7 @@ class _SavedScreenState extends State<SavedScreen> {
                     bool innerBoxIsScrolled) =>
                 [
                   SliverAppBar(
-                      expandedHeight: height * .155,
+                      expandedHeight: height * .18,
                       // backgroundColor: Colors.white,
                       automaticallyImplyLeading: false,
                       flexibleSpace: FlexibleSpaceBar(
@@ -38,6 +37,7 @@ class _SavedScreenState extends State<SavedScreen> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            SizedBox(height: height * .02),
                             Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 20),

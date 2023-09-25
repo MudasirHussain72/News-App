@@ -72,7 +72,7 @@ class ShowNewsCardWidget extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .titleLarge!
-                        .copyWith(fontSize: 17),
+                        .copyWith(fontSize: 16),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
