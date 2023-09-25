@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/res/color/color.dart';
 import 'package:news_app/res/components/shows_news_card_widget.dart';
 import 'package:news_app/res/components/text_formfield_widget.dart';
 import 'package:news_app/view/dashboard/explore/widgets/category_tabs_widget.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 class ExploreScreen extends StatefulWidget {
   const ExploreScreen({super.key});

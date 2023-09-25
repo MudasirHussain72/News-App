@@ -20,16 +20,19 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
           SliverAppBar(
             // pinned: true,
             floating: true,
-            leading: Padding(
-              padding: EdgeInsets.only(left: 10),
-              child: Container(
-                  height: 30,
-                  width: 30,
-                  decoration: BoxDecoration(
-                      color: AppColors.primaryLightColor,
-                      borderRadius: BorderRadius.circular(100)),
-                  child: Center(child: Icon(Icons.arrow_back_ios_new_rounded))),
+            leading: Icon(
+              Icons.arrow_back_ios_new_rounded,
+              color: AppColors.primaryLightColor,
             ),
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: Icon(
+                  Icons.bookmark,
+                  color: AppColors.primaryLightColor,
+                ),
+              ),
+            ],
             expandedHeight: height / 3,
             flexibleSpace: FlexibleSpaceBar(
               background: CachedNetworkImage(
