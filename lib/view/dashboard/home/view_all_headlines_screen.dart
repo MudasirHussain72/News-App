@@ -1,13 +1,14 @@
 import 'package:news_app/view/view_barrel_file.dart';
+import 'package:news_app/view_model/controllers/home_controller/home_controller.dart';
 
-class SavedScreen extends StatefulWidget {
-  const SavedScreen({super.key});
+class ViewAllHeadlinesScreen extends StatefulWidget {
+  const ViewAllHeadlinesScreen({super.key});
 
   @override
-  State<SavedScreen> createState() => _SavedScreenState();
+  State<ViewAllHeadlinesScreen> createState() => _ViewAllHeadlinesScreenState();
 }
 
-class _SavedScreenState extends State<SavedScreen> {
+class _ViewAllHeadlinesScreenState extends State<ViewAllHeadlinesScreen> {
   TextEditingController controller = TextEditingController();
   FocusNode focusNode = FocusNode();
   @override
@@ -19,12 +20,30 @@ class _SavedScreenState extends State<SavedScreen> {
         child: NestedScrollView(
             floatHeaderSlivers: true,
             physics: ClampingScrollPhysics(),
-            body: ListView.builder(
-                physics: BouncingScrollPhysics(),
-                itemCount: 100,
-                itemBuilder: (context, index) {
-                  // return ShowNewsCardWidget();
-                }), // Repleace ListView
+            body: Consumer<HomeController>(
+              builder: (context, provider, child) {
+                switch (provider.headlines.status!) {
+                  case Status.loading:
+                    return const LoadingWidget(
+                      color: AppColors.primaryColor,
+                    );
+                  case Status.error:
+                    return Text(
+                      'Try again${provider.headlines.message}',
+                      style: TextStyle(color: Colors.black),
+                    );
+                  case Status.completed:
+                    return ListView.builder(
+                        physics: BouncingScrollPhysics(),
+                        itemCount: provider.headlines.data!.articles!.length,
+                        itemBuilder: (context, index) {
+                          var articleData =
+                              provider.headlines.data!.articles![index];
+                          return ShowNewsCardWidget(articleData: articleData);
+                        });
+                }
+              },
+            ), // Repleace ListView
             headerSliverBuilder: (BuildContext context,
                     bool innerBoxIsScrolled) =>
                 [
@@ -42,7 +61,7 @@ class _SavedScreenState extends State<SavedScreen> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 20),
                               child: Text(
-                                'Saved News',
+                                'Breaking News!',
                                 style: Theme.of(context)
                                     .textTheme
                                     .titleLarge!

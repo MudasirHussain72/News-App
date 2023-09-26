@@ -1,11 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
-import 'package:news_app/res/color/color.dart';
-import 'package:news_app/utils/routes/routes_barrel_file.dart';
+import 'package:news_app/models/hesdlines_model/headlines_model.dart';
 import 'package:news_app/view/dashboard/news_detail/news_detail_Screen.dart';
+import 'package:news_app/view/view_barrel_file.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 class ShowNewsCardWidget extends StatelessWidget {
-  const ShowNewsCardWidget({super.key});
+  Articles articleData;
+  ShowNewsCardWidget({
+    super.key,
+    required this.articleData,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,13 +17,9 @@ class ShowNewsCardWidget extends StatelessWidget {
     double width = MediaQuery.sizeOf(context).width * 1;
     return GestureDetector(
       onTap: () {
-        // Navigator.pushNamed(context, RouteName.newsDetailScreen);
-        Navigator.of(context).push(
-          //Default page transition of IOS
-          CupertinoPageRoute(
-            builder: (context) => NewsDetailScreen(),
-          ),
-        );
+        PersistentNavBarNavigator.pushNewScreen(context,
+            screen: NewsDetailScreen(articleData: articleData),
+            withNavBar: false);
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -33,8 +33,9 @@ class ShowNewsCardWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             CachedNetworkImage(
-              imageUrl:
-                  "https://www.apple.com/newsroom/images/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/article/Apple-iPhone-15-Pro-lineup-hero-230912_Full-Bleed-Image.jpg.xlarge_2x.jpg",
+              imageUrl: articleData.urlToImage != null
+                  ? articleData.urlToImage.toString()
+                  : '',
               imageBuilder: (context, imageProvider) => Container(
                 height: height * .08,
                 width: double.infinity,
@@ -68,7 +69,12 @@ class ShowNewsCardWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Apple unveils iPhone 15 Pro and iPhone 15 Pro Max',
+                    // 'Apple unveils iPhone 15 Pro and iPhone 15 Pro Max',
+                    articleData.title != null
+                        ? articleData.title.toString()
+                        : '',
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
                     style: Theme.of(context)
                         .textTheme
                         .titleLarge!
@@ -87,7 +93,10 @@ class ShowNewsCardWidget extends StatelessWidget {
                                 fontWeight: FontWeight.normal, fontSize: 12),
                       ),
                       Text(
-                        'Apple',
+                        // 'Apple',
+                        articleData.source!.name != null
+                            ? articleData.source!.name.toString()
+                            : '',
                         style: Theme.of(context)
                             .textTheme
                             .titleMedium!
@@ -95,7 +104,12 @@ class ShowNewsCardWidget extends StatelessWidget {
                       ),
                       SizedBox(width: width * .2),
                       Text(
-                        '18 months ago',
+                        // '18 months ago',
+                        articleData.publishedAt != null
+                            ? timeago.format(DateTime.parse(
+                                articleData.publishedAt.toString()))
+                            : '',
+
                         style: Theme.of(context)
                             .textTheme
                             .titleMedium!

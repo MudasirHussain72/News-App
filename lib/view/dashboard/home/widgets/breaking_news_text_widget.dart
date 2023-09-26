@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/view/dashboard/home/view_all_headlines_screen.dart';
+import 'package:news_app/view/view_barrel_file.dart';
 
 class BreakingNewsTextWidget extends StatelessWidget {
   const BreakingNewsTextWidget({super.key});
@@ -16,12 +18,18 @@ class BreakingNewsTextWidget extends StatelessWidget {
             style:
                 Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 20),
           ),
-          Text(
-            'View All',
-            style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                  fontSize: 16,
-                  decoration: TextDecoration.underline,
-                ),
+          GestureDetector(
+            onTap: () {
+              PersistentNavBarNavigator.pushNewScreen(context,
+                  screen: ViewAllHeadlinesScreen(), withNavBar: false);
+            },
+            child: Text(
+              'View All',
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    fontSize: 16,
+                    decoration: TextDecoration.underline,
+                  ),
+            ),
           ),
         ],
       ),

@@ -1,9 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/models/hesdlines_model/headlines_model.dart';
 import 'package:news_app/res/color/color.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 class NewsDetailScreen extends StatefulWidget {
-  const NewsDetailScreen({super.key});
+  Articles articleData;
+  NewsDetailScreen({super.key, required this.articleData});
 
   @override
   State<NewsDetailScreen> createState() => _NewsDetailScreenState();
@@ -20,9 +23,14 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
           SliverAppBar(
             // pinned: true,
             floating: true,
-            leading: Icon(
-              Icons.arrow_back_ios_new_rounded,
-              color: AppColors.primaryLightColor,
+            leading: GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Icon(
+                Icons.arrow_back_ios_new_rounded,
+                color: AppColors.primaryLightColor,
+              ),
             ),
             actions: [
               Padding(
@@ -36,8 +44,10 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
             expandedHeight: height / 3,
             flexibleSpace: FlexibleSpaceBar(
               background: CachedNetworkImage(
-                imageUrl:
-                    "https://www.apple.com/newsroom/images/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/article/Apple-iPhone-15-Pro-lineup-hero-230912_Full-Bleed-Image.jpg.xlarge_2x.jpg",
+                imageUrl: widget.articleData.urlToImage != null
+                    ? widget.articleData.urlToImage.toString()
+                    : '',
+                // articleData.    "https://www.apple.com/newsroom/images/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/article/Apple-iPhone-15-Pro-lineup-hero-230912_Full-Bleed-Image.jpg.xlarge_2x.jpg",
                 imageBuilder: (context, imageProvider) => Container(
                   height: height / 3,
                   width: double.infinity,
@@ -66,7 +76,9 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Discover News',
+                    widget.articleData.title != null
+                        ? widget.articleData.title.toString()
+                        : '',
                     style: Theme.of(context)
                         .textTheme
                         .titleLarge!
@@ -86,7 +98,9 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                                 fontWeight: FontWeight.normal, fontSize: 14),
                       ),
                       Text(
-                        'Apple',
+                        widget.articleData.source!.name != null
+                            ? widget.articleData.source!.name.toString()
+                            : '',
                         style: Theme.of(context)
                             .textTheme
                             .titleMedium!
@@ -94,7 +108,10 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                       ),
                       SizedBox(width: width * .2),
                       Text(
-                        '18 months ago',
+                        widget.articleData.publishedAt != null
+                            ? timeago.format(DateTime.parse(
+                                widget.articleData.publishedAt.toString()))
+                            : '',
                         style: Theme.of(context)
                             .textTheme
                             .titleMedium!
@@ -105,7 +122,10 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                   ),
                   SizedBox(height: height * .02),
                   Text(
-                    'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+                    widget.articleData.description != null
+                        ? widget.articleData.description.toString()
+                        : '',
+                    // 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                         fontSize: 16, color: AppColors.secondarydarkColor),
                   ),

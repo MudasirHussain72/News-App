@@ -9,10 +9,8 @@ export 'package:news_app/view_model/services/splash_services/splash_services.dar
 export 'package:lottie/lottie.dart';
 export 'package:provider/provider.dart';
 export 'package:news_app/data/remote/response/status.dart';
-export 'package:news_app/models/lang_model/lang_model.dart';
 export 'package:news_app/res/components/loading_widget.dart';
 export 'package:news_app/data/remote/response/api_response.dart';
-export 'package:news_app/repository/get_lang_repository/get_lang_repository.dart';
 export 'package:news_app/res/components/round_button.dart';
 export 'package:flutter/foundation.dart';
 export 'package:flutter/gestures.dart';

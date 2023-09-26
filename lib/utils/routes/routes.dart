@@ -21,8 +21,8 @@ class Routes {
         return _platformPageRoute(child: const ExploreScreen());
       case RouteName.savedScreen:
         return _platformPageRoute(child: const SavedScreen());
-      case RouteName.newsDetailScreen:
-        return _platformPageRoute(child: const NewsDetailScreen());
+      // case RouteName.newsDetailScreen:
+      //   return _platformPageRoute(child: const NewsDetailScreen());
       default:
         return MaterialPageRoute(builder: (_) {
           return Scaffold(

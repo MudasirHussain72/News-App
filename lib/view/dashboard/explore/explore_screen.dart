@@ -54,7 +54,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   physics: BouncingScrollPhysics(),
                   itemCount: 10,
                   itemBuilder: (context, index) {
-                    return ShowNewsCardWidget();
+                    // return ShowNewsCardWidget();
                   }),
             )
           ],
