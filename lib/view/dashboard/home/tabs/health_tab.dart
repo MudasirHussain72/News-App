@@ -42,7 +42,7 @@ class _HomeHealthTabState extends State<HomeHealthTab> {
                   shrinkWrap: true,
                   itemCount: provider.health.data!.articles!.length,
                   itemBuilder: (context, index) {
-                    var articleData = provider.sports.data!.articles![index];
+                    var articleData = provider.health.data!.articles![index];
                     return ShowNewsCardWidget(articleData: articleData);
                   }),
             );

@@ -42,7 +42,7 @@ class _HomeEntertainmentTabState extends State<HomeEntertainmentTab> {
                   shrinkWrap: true,
                   itemCount: provider.entertainment.data!.articles!.length,
                   itemBuilder: (context, index) {
-                    var articleData = provider.sports.data!.articles![index];
+                    var articleData = provider.entertainment.data!.articles![index];
                     return ShowNewsCardWidget(articleData: articleData);
                   }),
             );

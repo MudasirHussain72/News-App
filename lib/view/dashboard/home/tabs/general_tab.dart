@@ -42,7 +42,7 @@ class _HomeGeneralTabState extends State<HomeGeneralTab> {
                   shrinkWrap: true,
                   itemCount: provider.general.data!.articles!.length,
                   itemBuilder: (context, index) {
-                    var articleData = provider.sports.data!.articles![index];
+                    var articleData = provider.general.data!.articles![index];
                     return ShowNewsCardWidget(articleData: articleData);
                   }),
             );

@@ -42,7 +42,7 @@ class _HomeScienceTabState extends State<HomeScienceTab> {
                   shrinkWrap: true,
                   itemCount: provider.science.data!.articles!.length,
                   itemBuilder: (context, index) {
-                    var articleData = provider.sports.data!.articles![index];
+                    var articleData = provider.science.data!.articles![index];
                     return ShowNewsCardWidget(articleData: articleData);
                   }),
             );

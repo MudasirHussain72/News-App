@@ -42,7 +42,8 @@ class _HomeTechnologyTabState extends State<HomeTechnologyTab> {
                   shrinkWrap: true,
                   itemCount: provider.technology.data!.articles!.length,
                   itemBuilder: (context, index) {
-                    var articleData = provider.sports.data!.articles![index];
+                    var articleData =
+                        provider.technology.data!.articles![index];
                     return ShowNewsCardWidget(articleData: articleData);
                   }),
             );
