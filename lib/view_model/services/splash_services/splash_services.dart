@@ -12,16 +12,19 @@ class SplashServices {
   void splashService(BuildContext context) {
     Timer.periodic(const Duration(seconds: 1), (timer) {
       timer.cancel();
-      Navigator.of(context).push(PageRouteBuilder(
-          pageBuilder: (BuildContext context, Animation<double> animation,
-              Animation<double> secondaryAnimation) {
-            return CustomTransition(
-              scale: animation,
-              child: DashboardScreen(animation: animation),
-            );
-          },
-          transitionDuration: const Duration(milliseconds: 750),
-          reverseTransitionDuration: const Duration(milliseconds: 750)));
+      Navigator.of(context).pushAndRemoveUntil(
+        PageRouteBuilder(
+            pageBuilder: (BuildContext context, Animation<double> animation,
+                Animation<double> secondaryAnimation) {
+              return CustomTransition(
+                scale: animation,
+                child: DashboardScreen(animation: animation),
+              );
+            },
+            transitionDuration: const Duration(milliseconds: 750),
+            reverseTransitionDuration: const Duration(milliseconds: 750)),
+        (route) => false,
+      );
     });
     //navigating user to dashboard if he is already login
   }
