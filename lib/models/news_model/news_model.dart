@@ -1,11 +1,18 @@
-class AllNewsModel {
+import 'package:hive/hive.dart';
+part 'news_model.g.dart';
+
+@HiveType(typeId: 0)
+class NewsModel extends HiveObject {
+  @HiveField(0)
   String? status;
+  @HiveField(1)
   int? totalResults;
+  @HiveField(2)
   List<Articles>? articles;
 
-  AllNewsModel({this.status, this.totalResults, this.articles});
+  NewsModel({this.status, this.totalResults, this.articles});
 
-  AllNewsModel.fromJson(Map<String, dynamic> json) {
+  NewsModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     totalResults = json['totalResults'];
     if (json['articles'] != null) {
@@ -27,15 +34,26 @@ class AllNewsModel {
   }
 }
 
-class Articles {
+@HiveType(typeId: 1)
+class Articles extends HiveObject {
+  @HiveField(0)
   Source? source;
+  @HiveField(1)
   String? author;
+  @HiveField(2)
   String? title;
+  @HiveField(3)
   String? description;
+  @HiveField(4)
   String? url;
+  @HiveField(5)
   String? urlToImage;
+  @HiveField(6)
   String? publishedAt;
+  @HiveField(7)
   String? content;
+  @HiveField(8)
+  bool saved = false;
 
   Articles(
       {this.source,
@@ -75,8 +93,11 @@ class Articles {
   }
 }
 
-class Source {
+@HiveType(typeId: 2)
+class Source extends HiveObject {
+  @HiveField(0)
   String? id;
+  @HiveField(1)
   String? name;
 
   Source({this.id, this.name});

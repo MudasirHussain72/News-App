@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app/models/hesdlines_model/headlines_model.dart';
+import 'package:news_app/models/news_model/news_model.dart';
 import 'package:news_app/res/color/color.dart';
 import 'package:timeago/timeago.dart' as timeago;
 

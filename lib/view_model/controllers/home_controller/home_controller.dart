@@ -1,4 +1,4 @@
-import 'package:news_app/models/hesdlines_model/headlines_model.dart';
+import 'package:news_app/models/news_model/news_model.dart';
 import 'package:news_app/repository/news_repository/news_repository.dart';
 
 import '../../../../view/view_barrel_file.dart';
@@ -32,57 +32,57 @@ class HomeController with ChangeNotifier {
   }
 
   // headlines breaking news
-  ApiResponse<HeadlinesModel> headlines = ApiResponse.loading();
-  setHeadlines(ApiResponse<HeadlinesModel> response) {
+  ApiResponse<NewsModel> headlines = ApiResponse.loading();
+  setHeadlines(ApiResponse<NewsModel> response) {
     headlines = response;
     notifyListeners();
   }
 
   // headlines bussiness news
-  ApiResponse<HeadlinesModel> bussiness = ApiResponse.loading();
-  setBussiness(ApiResponse<HeadlinesModel> response) {
+  ApiResponse<NewsModel> bussiness = ApiResponse.loading();
+  setBussiness(ApiResponse<NewsModel> response) {
     bussiness = response;
     notifyListeners();
   }
 
   // headlines entertainment news
-  ApiResponse<HeadlinesModel> entertainment = ApiResponse.loading();
-  setEntertainment(ApiResponse<HeadlinesModel> response) {
+  ApiResponse<NewsModel> entertainment = ApiResponse.loading();
+  setEntertainment(ApiResponse<NewsModel> response) {
     entertainment = response;
     notifyListeners();
   }
 
   // headlines general news
-  ApiResponse<HeadlinesModel> general = ApiResponse.loading();
-  setGeneral(ApiResponse<HeadlinesModel> response) {
+  ApiResponse<NewsModel> general = ApiResponse.loading();
+  setGeneral(ApiResponse<NewsModel> response) {
     general = response;
     notifyListeners();
   }
 
   // headlines health news
-  ApiResponse<HeadlinesModel> health = ApiResponse.loading();
-  setHealth(ApiResponse<HeadlinesModel> response) {
+  ApiResponse<NewsModel> health = ApiResponse.loading();
+  setHealth(ApiResponse<NewsModel> response) {
     health = response;
     notifyListeners();
   }
 
   // headlines science news
-  ApiResponse<HeadlinesModel> science = ApiResponse.loading();
-  setScience(ApiResponse<HeadlinesModel> response) {
+  ApiResponse<NewsModel> science = ApiResponse.loading();
+  setScience(ApiResponse<NewsModel> response) {
     science = response;
     notifyListeners();
   }
 
   // headlines sports news
-  ApiResponse<HeadlinesModel> sports = ApiResponse.loading();
-  setSports(ApiResponse<HeadlinesModel> response) {
+  ApiResponse<NewsModel> sports = ApiResponse.loading();
+  setSports(ApiResponse<NewsModel> response) {
     sports = response;
     notifyListeners();
   }
 
   // headlines technology news
-  ApiResponse<HeadlinesModel> technology = ApiResponse.loading();
-  setTechnology(ApiResponse<HeadlinesModel> response) {
+  ApiResponse<NewsModel> technology = ApiResponse.loading();
+  setTechnology(ApiResponse<NewsModel> response) {
     technology = response;
     notifyListeners();
   }
@@ -90,7 +90,7 @@ class HomeController with ChangeNotifier {
   // A func to get the Headlines from api by source parameter
   void getHeadlinesApi() {
     _repo.getHeadlinesDataApi('bbc-news').then((value) {
-      setHeadlines(ApiResponse<HeadlinesModel>.completed(value));
+      setHeadlines(ApiResponse<NewsModel>.completed(value));
     }).onError((error, stackTrace) {
       if (kDebugMode) {
         print(error);
@@ -103,7 +103,7 @@ class HomeController with ChangeNotifier {
   // A func to get the Headlines bussiness news from api by category parameter
   void getBussinessHeadlinesApi() {
     _repo.specificCategoryTopHeadlineApi('business').then((value) {
-      setBussiness(ApiResponse<HeadlinesModel>.completed(value));
+      setBussiness(ApiResponse<NewsModel>.completed(value));
     }).onError((error, stackTrace) {
       if (kDebugMode) {
         print(error);
@@ -116,7 +116,7 @@ class HomeController with ChangeNotifier {
   // A func to get the Headlines entertainment news from api by category parameter
   void getEntertainmentHeadlinesApi() {
     _repo.specificCategoryTopHeadlineApi('entertainment').then((value) {
-      setEntertainment(ApiResponse<HeadlinesModel>.completed(value));
+      setEntertainment(ApiResponse<NewsModel>.completed(value));
     }).onError((error, stackTrace) {
       if (kDebugMode) {
         print(error);
@@ -129,7 +129,7 @@ class HomeController with ChangeNotifier {
   // A func to get the Headlines general news from api by category parameter
   void getGeneralHeadlinesApi() {
     _repo.specificCategoryTopHeadlineApi('general').then((value) {
-      setGeneral(ApiResponse<HeadlinesModel>.completed(value));
+      setGeneral(ApiResponse<NewsModel>.completed(value));
     }).onError((error, stackTrace) {
       if (kDebugMode) {
         print(error);
@@ -142,7 +142,7 @@ class HomeController with ChangeNotifier {
   // A func to get the Headlines health news from api by category parameter
   void getHealthHeadlinesApi() {
     _repo.specificCategoryTopHeadlineApi('health').then((value) {
-      setHealth(ApiResponse<HeadlinesModel>.completed(value));
+      setHealth(ApiResponse<NewsModel>.completed(value));
     }).onError((error, stackTrace) {
       if (kDebugMode) {
         print(error);
@@ -155,7 +155,7 @@ class HomeController with ChangeNotifier {
   // A func to get the Headlines science news from api by category parameter
   void getScienceHeadlinesApi() {
     _repo.specificCategoryTopHeadlineApi('science').then((value) {
-      setScience(ApiResponse<HeadlinesModel>.completed(value));
+      setScience(ApiResponse<NewsModel>.completed(value));
     }).onError((error, stackTrace) {
       if (kDebugMode) {
         print(error);
@@ -168,7 +168,7 @@ class HomeController with ChangeNotifier {
   // A func to get the Headlines sports news from api by category parameter
   void getSportsHeadlinesApi() {
     _repo.specificCategoryTopHeadlineApi('sports').then((value) {
-      setSports(ApiResponse<HeadlinesModel>.completed(value));
+      setSports(ApiResponse<NewsModel>.completed(value));
     }).onError((error, stackTrace) {
       if (kDebugMode) {
         print(error);
@@ -181,7 +181,7 @@ class HomeController with ChangeNotifier {
   // A func to get the Headlines technology news from api by category parameter
   void getTechnologyHeadlinesApi() {
     _repo.specificCategoryTopHeadlineApi('technology').then((value) {
-      setTechnology(ApiResponse<HeadlinesModel>.completed(value));
+      setTechnology(ApiResponse<NewsModel>.completed(value));
     }).onError((error, stackTrace) {
       if (kDebugMode) {
         print(error);
